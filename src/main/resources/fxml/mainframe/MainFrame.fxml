@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="566.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.midas.gui.controllers.mainframe.MainFrame">
-   <children>
-      <GridPane layoutX="27.0" layoutY="21.0" prefHeight="482.0" prefWidth="806.0">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="732.0" prefWidth="865.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.midas.gui.controllers.mainframe.MainFrame">
+   <center>
+      <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="21.80001029968261" prefHeight="25.0000072479248" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.000006103515624" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="477.2" prefHeight="479.59999389648436" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <TextArea fx:id="mainEditorTextArea" prefHeight="200.0" prefWidth="200.0" />
+            <TreeView maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="507.0" prefWidth="402.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+            <MenuBar prefHeight="0.0" prefWidth="410.0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="menuFileOpen" mnemonicParsing="false" onAction="#openFileChooser" text="Open">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
+              <tabs>
+                <Tab text="Untitled Tab 1">
+                     <content>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                     <content>
+                        <TextArea fx:id="mainEditorTextArea" prefHeight="200.0" prefWidth="200.0" />
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+            <Label text="File path" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-   </children>
-</AnchorPane>
+   </center>
+</BorderPane>
