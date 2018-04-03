@@ -1,4 +1,4 @@
-package pl.midas.core.global;
+package pl.midas.core.global.settings;
 
 public enum GlobalSettingsConstants {
     LANGUAGE("language");

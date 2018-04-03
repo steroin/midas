@@ -1,4 +1,4 @@
-package pl.midas.core.global;
+package pl.midas.core.global.settings;
 
 public class GlobalSettings {
     public String getSetting(GlobalSettingsConstants setting) {
