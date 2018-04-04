@@ -1,0 +1,10 @@
+{
+  examplePlaceholder: 'exampleText',
+  anotherExamplePlaceholder: "anotherExampleText",
+  nestedExamplePlaceholder: {
+    exampleNest: 'exampleNestedText',
+    deeperNest: {
+      deeperNestedExampleNest: 'exampleDeeperNestedText'
+    }
+  }
+}
