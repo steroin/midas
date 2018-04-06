@@ -22,7 +22,7 @@ public class TextPlaceholderReader {
         String language = GlobalSettings.getSetting(GlobalSettingsConstants.LANGUAGE);
 
         try {
-            JSONObject jsonObject = JsonResourceResolver.getResource(buildResourcePath(language, path, jsonFileName));
+            JSONObject jsonObject = retrieveJsonObject(buildResourcePath(language, path, jsonFileName));
 
             for (int i = 1; i < splittedXPath.length - 1; i++) {
                 if (!jsonObject.has(splittedXPath[i])) {
@@ -43,5 +43,15 @@ public class TextPlaceholderReader {
 
     private static String buildResourcePath(String language, String path, String fileName) {
         return "/lang/" + language + "/" + path + "/" + fileName + "." + JSON_EXTENSION;
+    }
+
+    private static JSONObject retrieveJsonObject(String path) throws ResourceNotFoundException {
+        if (cachedPacks.containsKey(path)) {
+            return cachedPacks.get(path);
+        }
+
+        JSONObject jsonObject = JsonResourceResolver.getResource(path);
+        cachedPacks.put(path, jsonObject);
+        return jsonObject;
     }
 }
