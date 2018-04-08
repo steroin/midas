@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,9 +13,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="732.0" prefWidth="865.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.midas.gui.controllers.mainframe.MainFrame">
+<?import pl.midas.gui.controllers.controls.TextEditor?>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="732.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.midas.gui.controllers.mainframe.MainFrame">
    <center>
-      <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints />
             <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
@@ -42,16 +42,12 @@
             </MenuBar>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
               <tabs>
-                <Tab text="Untitled Tab 1">
-                     <content>
-                        <TextArea prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                     <content>
-                        <TextArea fx:id="mainEditorTextArea" prefHeight="200.0" prefWidth="200.0" />
-                     </content></Tab>
+                <Tab text="Untitled Tab 1" >
+                    <TextEditor />
+                </Tab>
               </tabs>
             </TabPane>
-            <Label text="File path" GridPane.rowIndex="1" />
+            <Label fx:id="filePathLabel" text="File path" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>

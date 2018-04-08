@@ -1,29 +1,24 @@
 package pl.midas.gui.controllers.mainframe;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.FileChooser;
+import pl.midas.core.global.language.TextPlaceholderReader;
+
+import java.io.File;
 
 public class MainFrame {
 
     @FXML
-    private MenuItem menuFileOpen;
+    private ListView<String> mainEditor;
     @FXML
-    private TextArea mainEditorTextArea;
-
-    public String getText() {
-        return mainEditorTextArea.getText();
-    }
-
-    public void setText(String text) {
-        mainEditorTextArea.setText(text);
-    }
+    private Label filePathLabel;
 
     public void openFileChooser() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.showOpenDialog(mainEditorTextArea.getScene().getWindow());
+        fileChooser.setTitle(TextPlaceholderReader.readPlaceholder("editor", "MenuItems.openFileTitle"));
+        File file = fileChooser.showOpenDialog(mainEditor.getScene().getWindow());
+        filePathLabel.setText(file.getAbsolutePath());
     }
-
-
 }
